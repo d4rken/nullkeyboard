@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:tools="http://schemas.android.com/tools"
+          package="eu.thedarken.nkv2"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission
+        android:name="android.permission.BIND_INPUT_METHOD"
+        tools:ignore="ProtectedPermissions"/>
+    <uses-permission android:name="com.android.vending.CHECK_LICENSE"/>
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"/>
+    <application
+        android:icon="@drawable/icon"
+        android:label="Null Keyboard v2"
+        tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+
+        <service
+            android:name="eu.thedarken.nkv2.Main"
+            android:permission="android.permission.BIND_INPUT_METHOD">
+            <intent-filter>
+                <action android:name="android.view.InputMethod"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.view.im"
+                android:resource="@xml/method"/>
+        </service>
+        <activity android:name="eu.thedarken.nkv2.WidgetConfigure">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE"/>
+            </intent-filter>
+        </activity>
+        <receiver android:name=".Widget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_info"/>
+        </receiver>
+        <activity android:name="eu.thedarken.nkv2.InputToggle"/>
+    </application>
+
+</manifest>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, NKV2main!</string>
+    <string name="app_name">Null Keyboard v2</string>
+</resources>

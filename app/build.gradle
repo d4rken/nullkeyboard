@@ -1,0 +1,21 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 8
+    buildToolsVersion "25.0.2"
+
+    defaultConfig {
+        applicationId "eu.thedarken.nkv2"
+        minSdkVersion 4
+        targetSdkVersion 8
+        versionCode 7
+        versionName "2.4"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles 'proguard.cfg'
+        }
+    }
+}
